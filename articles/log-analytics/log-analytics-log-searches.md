@@ -137,9 +137,9 @@ When creating filters, you should understand the differences in working with dif
 **Searchable fields** show in blue in search results.  You can use searchable fields in search conditions specific to the field such as the following:
 
 ```
-Type: Event EventLevelName: "Error"
-Type: SecurityEvent Computer:Contains("contoso.com")
-Type: Event EventLevelName IN {"Error","Warning"}
+Type:Event EventLevelName:"Error"
+Type:SecurityEvent Computer:Contains("contoso.com")
+Type:Event EventLevelName IN{"Error","Warning"}
 ```
 
 **Free text searchable fields** are shown in grey in search results.  They cannot be used with search conditions specific to the field like searchable fields.  They are only searched when performing a query across all fields such as the following.
@@ -212,7 +212,7 @@ Commands have names of verbs so you can easily tell what they do.
 The sort command allows you to define the sorting order by one or multiple fields. Even if you don’t use it, by default, a time descending order is enforced. The most recent results are always at the top of search results. This means that when you run a search, with `Type=Event EventID=1234` what really is executed for you is:
 
 ```
-Type=Event EventID=1234 **| Sort TimeGenerated desc**
+Type=Event EventID=1234 | Sort TimeGenerated desc
 ```
 
 That's because it is the type of experience you are familiar with in logs. For example, in the Windows Event Viewer.
